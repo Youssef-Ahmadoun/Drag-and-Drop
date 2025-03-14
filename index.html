@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drag & Drop</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+
+            <div id="left">
+                <div class="item" draggable="true">
+                    <div class="list" >
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        <p>List item 1</p>
+                    </div>
+                </div>
+
+                <div class="item" draggable="true">
+                    <div class="list">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        <p>List item 2</p>
+                    </div>
+                </div>
+
+                <div class="item" draggable="true">
+                    <div class="list">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        <p>List item 3</p>
+                    </div>    
+                </div>
+
+                <div class="item" draggable="true">
+                    <div class="list">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        <p>List item 4</p>
+                    </div>
+                </div> 
+            </div>
+
+
+            <div id="right"></div>
+
+            <script>
+                let leftBox = document.getElementById('left');
+                let rightBox = document.getElementById('right');
+                let items = document.getElementsByClassName('item');
+
+                for(item of items){
+                    item.addEventListener('dragstart', e => {
+                        let selected = e.target;
+
+                        rightBox.addEventListener('dragover', e => {
+                            e.preventDefault();
+                        });
+
+
+                        rightBox.addEventListener('drop', e => {
+                            rightBox.appendChild(selected);
+                            selected = null;
+                        });
+
+
+                        leftBox.addEventListener('dragover', e => {
+                            e.preventDefault();
+                        });
+
+                        leftBox.addEventListener('drop', e => {
+                            leftBox.appendChild(selected);
+                            selected = null;
+                        });
+                    });
+                }
+
+                
+            </script>
+            
+        </div>
+    </body>
+</html>
+
+FOR each item in the lest box
+    SET item as draggable
+    WHEN item is dragged
+        STORE item in rightbox/leftbox (double code)
+
+FOR each Drop zone in drop zone
+    WHEN item is dragged over drop zone
+        ALLOW the drop
+
+    WHEN item is dropped
+        MOVE it to new location right/left box
+
+    
+
+
+
