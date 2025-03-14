@@ -18,7 +18,8 @@
 #right , #left{
     width: 300px;
     height: 400px;
-    border: 2px dashed #fff;
+    border: 10px double #fff;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -32,10 +33,11 @@
     align-items: center;
     padding-left: 1.4rem;
     color: white;
-    background: #FA3663;
+    background: #E9A53F;
     width: 90%;
     margin: auto;
     flex-grow: 1;
+    border-radius: 0.7rem;
 }
 #right .item .list,
 #left .item .list{
